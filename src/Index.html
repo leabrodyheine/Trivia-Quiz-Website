@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="StyleSheet.css">
+    <title>Quizzical</title>
+    <link rel="icon" type="image/x-icon"
+        href="https://lh3.googleusercontent.com/pw/ABLVV85GSZ2gn7jvCCNFCjgPDE1oLtQjTiLjcNlPLnnoHF8rH6rpwFT4pTlwRUAO-WiLodnV9-xG02fG6NZQK4L2OUdy3svPSntrlhU7AYMZzDKQn4-DBpk=w2400">
+</head>
+
+<body>
+    <div class="menu-bar">
+        <!-- Categories -->
+        <select id="category-dropdown" class="menu-dropdown">
+            <option value="8">Choose A Category ▼</option>
+            <option value="9">General Knowledge</option>
+            <option value="10">Entertainment: Books</option>
+            <option value="11">Entertainment: Film</option>
+            <option value="12">Entertainment: Music</option>
+            <option value="13">Entertainment: Musicals & Theatres</option>
+            <option value="14">Entertainment: Television</option>
+            <option value="15">Entertainment: Video Games</option>
+            <option value="16">Entertainment: Board Games</option>
+            <option value="17">Science & Nature</option>
+            <option value="18">Science: Computers</option>
+            <option value="19">Science: Mathematics</option>
+            <option value="20">Mythology</option>
+            <option value="21">Sports</option>
+            <option value="22">Geography</option>
+            <option value="23">History</option>
+            <option value="24">Politics</option>
+            <option value="25">Art</option>
+            <option value="26">Celebrities</option>
+            <option value="27">Animals</option>
+            <option value="28">Vehicles</option>
+            <option value="29">Entertainment: Comics</option>
+            <option value="30">Science: Gadgets</option>
+            <option value="31">Entertainment: Japanese Anime & Manga</option>
+            <option value="32">Entertainment: Cartoon & Animations</option>
+        </select>
+
+        <!-- Difficulty -->
+        <select id="difficulty-dropdown" class="menu-dropdown">
+            <option value="difficulty">Difficulty ▼</option>
+            <option value="any-difficulty">Any Difficulty</option>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+        </select>
+        <a href="#" id="fifty-fifty">50:50</a>
+        <a href="#" id="ask-the-host">Ask the Host</a>
+        <a href="#" id="pause-timer">Pause Timer for 1 Min</a>
+    </div>
+
+    <div class="container">
+        <!-- Headings -->
+        <div id="home" class="flex-center flex-column">
+            <h1>Quizzical</h1>
+            <h2>Produced by 230008959 for assessment 1 of CS5003</h2>
+        </div>
+
+        <!-- Start Game Button  -->
+        <div id="start-game" style="display:none;">
+            <button id="start-game-btn" class="start-game-button">Start Game</button>
+        </div>
+
+        <!-- Bonus Category Selection -->
+        <div id="bonus-category-selection" style="display:none;">
+            <h1 id="bonus-cat-txt">Choose a Bonus Category!</h1>
+        </div>
+
+        <!-- Game Over UI -->
+        <div id="game-over" class="game-over" style="display:none;">
+            <h2>Game Over</h2>
+            <button id="new-game" class="new-game-button">New Game</button>
+        </div>
+
+        <!-- 429 Error UI -->
+        <div id="error-container" class="error-container" style="display:none;">
+            <img src="https://lh3.googleusercontent.com/pw/ABLVV851oEvrY2b5FaDmnosBQO4u_SV-mWolELCvPTXCJK5HxT5320S9AJw69D8NUGxIVVgkR8uIZCPy55u_Qy-OnH31pNF1QOqj9pgfdySxmCCAaRqk3XQ=w2400"
+                alt="Overflowing bucket" class="bucket-image">
+            <h1>Oops! Too many requests</h1>
+            <h3>Please wait a moment, we are trying again.</h3>
+        </div>
+
+        <!-- Fetching Bonus UI -->
+        <div id="fetching-bonus" class="bonus" style="display:none;">
+            <h1>Just a moment...</h1>
+            <h3>We are getting your questions ready.</h3>
+            <p id="loading-bar">Loading... ▢▢▢▢▢▢▢▢▢▢ 0%</p>
+        </div>
+
+        <!-- UI For Playing Game -->
+        <div id="game-playing" style="display:none;">
+            <div id="timer-container">
+                <svg id="timer-svg" width="120" height="120" viewPort="0 0 120 120">
+                    <circle r="54" cx="60" cy="60" fill="transparent" stroke-dasharray="339.292"
+                        stroke-dashoffset="339.292" stroke="#00529B" stroke-width="10"></circle>
+                    <text id="time-left" x="50%" y="50%" text-anchor="middle" fill="#00529B" dy=".3em">30s</text>
+                </svg>
+            </div>
+
+            <div id="score-tracker">
+                <div id="correct-answers">Correct: 0</div>
+                <div id="incorrect-answers">Incorrect: 0</div>
+            </div>
+
+            <section id="question-container">
+                <p id="question"></p>
+                <!-- questions here -->
+            </section>
+
+            <ul id="answer-container">
+                <!-- Answer options here -->
+            </ul>
+
+            <div id="game-controls">
+                <button id="start-over">Start Over</button>
+                <button id="quit-game">Quit Game</button>
+            </div>
+        </div>
+
+        <!-- Current and Best Score Cards -->
+        <div id="score-board" class="score-board">
+            <div class="score-card current-score">
+                <span class="score-title">Current Score:</span>
+                <span id="current-score" class="score-value">0</span>
+            </div>
+            <div class="score-card best-score">
+                <span class="score-title">Best Score:</span>
+                <span id="best-score" class="score-value">0</span>
+            </div>
+        </div>
+
+        <!-- Timer -->
+        <div id="timeout-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">×</span>
+                <p>Uh oh...you ran out of time</p>
+                <p>-1 point</p>
+            </div>
+        </div>
+
+        <!-- Tracking Top 10 Scores -->
+        <footer>
+            <div id="leaderboard" class="flex-center flex-column">
+                <h3>Top Scores</h3>
+                <ul id="top-scores-list">
+                    <!-- Top scores here -->
+                </ul>
+            </div>
+        </footer>
+    </div>
+    <script src="Javascript Main.js"></script>
+</body>
+
+</html>
