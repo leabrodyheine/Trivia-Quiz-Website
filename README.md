@@ -6,7 +6,7 @@ The main aim of this project is to develop a clearly structured font-end single-
 
 ## Overview
 
-This Quiz game is a web-based trivia quiz application that presents a sequence of multiple-choice questions to the player. Players select answers with the goal of accruing points for correct responses. The game allows players to quit at any time to retain their score or continue to the next question. Accumulating three incorrect answers results in a loss, with the player's score reset to zero. The application fetches questions from either the Open Trivial DB API or QuizAPI, requiring strategic API endpoint and parameter selection.
+This Quiz game is a web-based trivia quiz application that presents a sequence of multiple-choice questions to the player. Players select answers with the goal of accruing points for correct responses. The game allows players to quit at any time to retain their score or continue to the next question. Accumulating three incorrect answers results in a loss, with the player's score reset to zero. The application fetches questions from the Open Trivial DB, requiring strategic API endpoint and parameter selection.
 
 ## Technical Requirements
 
@@ -14,7 +14,7 @@ This Quiz game is a web-based trivia quiz application that presents a sequence o
 - **APIs**: Questions are fetched from Open Trivial DB API.
 
 ## Features and Functionality
-- Presents multiple-choice questions from the chosen API, tracking correct and incorrect answers.
+- Presents multiple-choice questions from the API, tracking correct and incorrect answers.
 - Ends the game after three incorrect answers or when the player opts to stop, displaying the final score.
 - Enables starting a new game without reloading the page.
 - Scores questions based on difficulty.
