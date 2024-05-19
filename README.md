@@ -2,7 +2,7 @@
 
 ## Aims
 
-The main aim of this project is to develop a clearly structured single-page web application to practice using APIs for accessing remote services, manipulating JSON and arrays, manipulating the DOM, and incorporating the results into a web application.
+The main aim of this project is to develop a clearly structured font-end single-page web application to practice using APIs for accessing remote services, manipulating JSON and arrays, manipulating the DOM, and incorporating the results into a web application.
 
 ## Overview
 
@@ -29,4 +29,4 @@ This Quiz game is a web-based trivia quiz application that presents a sequence o
 - Maintains a leaderboard with the top ten scores and player names, displayed after each game.
 
 ## Run the Program
-please use http://localhost:5030/
+please use live preview to see the webpage.
