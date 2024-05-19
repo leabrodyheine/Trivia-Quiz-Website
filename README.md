@@ -29,4 +29,4 @@ This Quiz game is a web-based trivia quiz application that presents a sequence o
 - Maintains a leaderboard with the top ten scores and player names, displayed after each game.
 
 ## Run the Program
-please use live preview to view the webpage
+please use http://localhost:5030/
